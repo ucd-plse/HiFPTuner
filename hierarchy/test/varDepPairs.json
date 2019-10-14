@@ -1,0 +1,7 @@
+[
+    ["g","main.x1"],
+    ["main.x1","main.x2"],
+    ["main.x2","main.x2"],
+    ["main.x1","main.x3"],
+    ["main.x2","main.x3"]
+]

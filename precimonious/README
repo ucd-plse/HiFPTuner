@@ -1,0 +1,135 @@
+
+1. Create a directory with same name as test program (from gsl/doc/examples).
+
+2. Modify driver to include logger/checker.
+
+3. Compile the driver:
+> cd driver_name
+> ../compile.sh driver_name .
+
+4. Run the driver to create spec.cov. Add file to repository.
+> lli driver.bc
+
+5. Change the source code to now log/check the result instead. Compile
+again. Add modified source file to repository.
+
+6. Create an empty score.cov file. Add file to repository.
+> touch score.cov
+
+7. Copy exclude file from another driver (logger/checker
+functions). Add file to repository.
+
+8. Create include.txt by running dependencies pass. Add file to
+repository.  
+> $CORVETTE_PATH/scripts/dependencies.sh driver_name main
+
+9. Create search file. Add file to repository.
+> $CORVETTE_PATH/scripts/search.sh driver_name
+
+10. Create original config file. Add file to repository.
+> $CORVETTE_PATH/scripts/pconfig.sh driver_name
+
+11. Run the dd algorithm:
+> $CORVETTE_PATH/scripts/dd.py driver_name.bc searchFile.json driver_name.json
+
+12. Save diff found so far for future reference. Add file to repository.
+> cp diff_specfun.bc.json cindy.diff
+
+
+TO CHECK COST MODEL:
+
+1. Apply recommended type configuration:
+> $CORVETTE_PATH/scripts/main.py driver_name.bc valid_driver-name.bc.json
+
+2. Instrument resulting modified bitcode file:
+> ../instrument.sh m_driver-name .
+
+3. Instrument original bitcode file:
+> ../instrument.sh driver-name .
+
+4. Run instrumented bitcode files to get stats:
+> lli driver-name-i.bc
+> lli m_drier-name-i.bc
+
+
+
+COMPILING GSL using LLVM wrapper: 
+
+> export LLVM_COMPILER=clang
+> ./configure CC=/home/rubio/whole-program-llvm/wllvm CFLAGS="-g" --prefix=DIR ?
+> make
+
+
+COMPILING with gcc and level of optimization -O4
+
+> ./configure CC=gcc CFLAGS="-g -O4" --prefix=DIR
+> make
+> make install
+
+To remove:
+> sudo make uninstall (only if installed)
+> make clean
+> make distclean
+ 
+
+Files of interest:
+
+libgsl.so
+
+/home/rubio/gsl/gsl-1.15/.libs
+
+/home/rubio/whole-program-llvm/extract-bc libgsl.so
+
+ 
+libgsllcblas.so
+
+/home/rubio/gsl/gsl-1.15/cblas/.libs
+
+/home/rubio/whole-program-llvm/extract-bc libgslcblas.so
+
+ 
+
+Drivers:
+
+doc/examples/intro.c
+doc/examples/specfun.c
+ 
+
+Compiling drivers:
+
+Use either compile.sh or intro/Makefile.
+Make sure to set the following environment variables:
+
+GSL_PATH -> This is the path to $CORVETTE_PATH/benchmarks/gsl/gsl-1.15
+
+LD_LIBRARY_APTH -> This is the path to both .libs directories $CORVETTE_PATH/benchmarks/gsl/gsl-1.15/.libs and  $CORVETTE_PATH/benchmarks/gsl/gsl-1.15/cblas/.libs
+
+
+Setting svn:ignore property:
+
+svn propset -F ../svn-prop.txt svn:ignore dir
+
+OR
+
+svn propedit svn:ignore dir
+
+
+Compiling bitcode using gcc
+===========================
+llc intro.bc -o intro.s
+gcc -O3 intro.s -lm -o intro-test
+
+For reference, in case we ever want to extract functions:
+llvm-extract -func main -func cov_check -func cov_deserialize -func cov_rand -func cov_rand_sp -func current_time_ns -func get_time -func gsl_error -func gsl_sf_bessel_J0 -func gsl_sf_bessel_J0_e -func gsl_sf_bessel_cos_pi4_e -func gsl_stream_printf -func cheb_eval_e2240 -func cov_arr_log copy-intro.bc -o sliced.bc
+
+Creating inputs
+============================
+1. Modify the main function so that it uses randomly generated inputs
+2. Make sure to use srand(time(NULL)) so that the inputs are random
+3. Write the inputs on a single line to a file called "inputs" (you can either append or just override)
+4. Compile the program with compile.sh script
+5. Compilte the program with coverage.sh script (in $CORVETTE_PATH/scripts folder)
+  - coverage.sh program .
+6. Run find_inputs script (in $CORVETTE_PATH/scripts folder)
+  - find_inputs program .
+7. Final inputs will be recorded in "final_inputs".

@@ -1,0 +1,12 @@
+digraph  {
+	"main.x1" -> "main.x3"	 [label=14,
+		weight=14];
+	"main.x1" -> "main.x2"	 [label=14,
+		weight=14];
+	g -> "main.x1"	 [label=14,
+		weight=14];
+	"main.x2" -> "main.x3"	 [label=14,
+		weight=14];
+	"main.x2" -> "main.x2"	 [label=14,
+		weight=14];
+}

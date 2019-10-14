@@ -1,0 +1,61 @@
+{"config": [
+	{"localVar": {
+		"function": "fun",
+		"name": "x",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "fun",
+		"name": "pi",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "fun",
+		"name": "result",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"call": {
+		"id": "4",
+		"function": "fun",
+		"name": "acos",
+		"switch": ["acosf","acos"],
+		"type": [["float","float"], ["double","double"]]
+	}},
+	{"call": {
+		"id": "11",
+		"function": "fun",
+		"name": "sin",
+		"switch": ["sinf","sin"],
+		"type": [["float","float"], ["double","double"]]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "a",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "b",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "s1",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "h",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "fuzz",
+		"type": ["float", "double", "longdouble"]
+	}},
+	{"localVar": {
+		"function": "main",
+		"name": "x",
+		"type": ["float", "double", "longdouble"]
+	}}
+]}

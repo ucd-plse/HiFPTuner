@@ -1,0 +1,20 @@
+HiFPTuning - Manual
+
+1 compile.sh
+    CMD: compile.sh {test}.bc
+        to add json profiling library
+
+2 analyze.sh
+    CMD: analyze.sh json_{test}.bc
+        to instrument the bitcode file and run it
+        to generate weighted dependence graph
+
+3 config.sh
+    CMD: config.sh
+        to generate configuration files(hierarchy and order file) based on the weighted dependence graph
+
+4 sort.sh
+    CMD: sort.sh {search} {config} {order}
+
+
+
