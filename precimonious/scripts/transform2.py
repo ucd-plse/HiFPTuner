@@ -50,7 +50,7 @@ def transform(bitcodefile, configfile, timeout):
     call(command, stdin=None, stdout=None, stderr=None)
     #command = ['clang', sys.argv[1] + '.s', '-Ofast -lm -llog -L$CORVETTE_PATH/logging ', '-o', sys.argv[1] + '.out']
     #call(command, stdin=None, stdout=None, stderr=None)
-    os.system('gcc ' +  sys.argv[1] + '.s ' + '-O2 -lm -llog -L$CORVETTE_PATH/logging -o ' + sys.argv[1] +'.out')
+    os.system('gcc ' +  sys.argv[1] + '.s ' + '-O2 -lm -llog -L$HIFP_PRECI/logging -o ' + sys.argv[1] +'.out')
     #retval = os.system('$CORVETTE_PATH/scripts/run_benchmark.sh ' + sys.argv[1] +'.out')
     command = ['./' + sys.argv[1] + '.out']
     
