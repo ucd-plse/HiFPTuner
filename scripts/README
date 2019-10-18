@@ -1,4 +1,4 @@
-HiFPTuning - Manual
+HiFPTuner
 
 1 compile.sh
     CMD: compile.sh {test}.bc
