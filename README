@@ -30,8 +30,8 @@ Install HiFPTuner:
     1. go to path/to/HiFPTuner/precimonious/logging
     2. make clean; make
     3. switch to llvm 3.8
-       3.1 modify .bashrc: $LLVM_VERSION=llvm-3.8
-       3.2 . .bashrc
+       3.1 modify ~/.bashrc: $LLVM_VERSION=llvm-3.8
+       3.2 . ~/.bashrc
     4. go to path/to/HiFPTuner/src/varDeps
     5. make clean; make
 
