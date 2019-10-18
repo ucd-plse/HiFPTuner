@@ -8,22 +8,32 @@ INSTALL
 Prerequisites:
     1. llvm 3.0 & 3.8
 
-    2. NetworkX python package
-        install: pip install networkx
+    2. Precimonious
+        repo.: https://github.com/corvette-berkeley/precimonious 
+
+    3. NetworkX 2.2 python package
+        install: pip install 'networkx==2.2'
         repo.:   https://github.com/networkx/networkx
 
-    3. Community python package
-        repo. and install: https://bitbucket.org/taynaud/python-louvain
+    4. Community python package
+        install: pip install python-louvain
+        repo.: https://bitbucket.org/taynaud/python-louvain
 
-    4. graphviz python package
+    5. pygraphviz and other graph python packages
+        pip install graphviz
+        pip install pygraphviz
+        apt-get install python-matplotlib
+        apt-get install libgraphviz-dev
+        apt-get install python-dev
 
 Install Auto_tuning:
-    1. go to path/to/auto_tuning/scripts
-    2. change env.sh (assign "auto_tuning" to the path/to/auto_tuning)
+    1. go to path/to/auto_tuning/precimonious/logging
+    2. make clean; make
     3. switch to llvm 3.8
+       3.1 modify .bashrc: $LLVM_VERSION=llvm-3.8
+       3.2 . .bashrc
     4. go to path/to/auto_tuning/src/varDeps
-    5. make clean
-    6. make
+    5. make clean; make
 
 -------------------------------------------------------
 USAGE
