@@ -110,10 +110,10 @@ RUN \
 
 # Cloning and Installing HiFPTuner
 RUN \
-	echo "export HIFPTUNER_PATH=$HOME/HiFPTuner" >> ~/.bashrc && \
+	echo "\nexport HIFPTUNER_PATH=$HOME/HiFPTuner" >> ~/.bashrc && \
 	echo "export HIFP_PRECI=$HOME/HiFPTuner/precimonious" >> ~/.bashrc && \
-	echo "export LD_LIBRARY_PATH=$HOME/\$HIFP_PRECI/logging:$LD_LIBRARY_PATH" >> ~/.bashrc && \
-	echo "export LIBRARY_PATH=$HOME/\$HIFP_PRECI/logging" >> ~/.bashrc
+	echo "export LD_LIBRARY_PATH=\$HIFP_PRECI/logging:\$LD_LIBRARY_PATH" >> ~/.bashrc && \
+	echo "export LIBRARY_PATH=\$HIFP_PRECI/logging" >> ~/.bashrc
 
 
 # Make port 80 available to the world outside this container
