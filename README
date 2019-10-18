@@ -9,7 +9,7 @@ Prerequisites:
     1. llvm 3.0 & 3.8
 
     2. Precimonious
-        repo.: https://github.com/corvette-berkeley/precimonious 
+        repo.: https://github.com/ucd-plse/precimonious 
 
     3. NetworkX 2.2 python package
         install: pip install 'networkx==2.2'
