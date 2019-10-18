@@ -1,7 +1,7 @@
-#include "../precimonious/logging/cov_checker.h"
-#include "../precimonious/logging/cov_log.h"
-#include "../precimonious/logging/cov_rand.h"
-#include "../precimonious/logging/cov_serializer.h"
+#include "../../precimonious/logging/cov_checker.h"
+#include "../../precimonious/logging/cov_log.h"
+#include "../../precimonious/logging/cov_rand.h"
+#include "../../precimonious/logging/cov_serializer.h"
 
 #include <time.h>
 #include <stdarg.h>
