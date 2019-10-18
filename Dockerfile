@@ -110,11 +110,27 @@ RUN \
 
 # Cloning and Installing HiFPTuner
 RUN \
+    git clone https://github.com/HGuo15/HiFPTuner.git && \
 	echo "\nexport HIFPTUNER_PATH=$HOME/HiFPTuner" >> ~/.bashrc && \
 	echo "export HIFP_PRECI=$HOME/HiFPTuner/precimonious" >> ~/.bashrc && \
 	echo "export LD_LIBRARY_PATH=\$HIFP_PRECI/logging:\$LD_LIBRARY_PATH" >> ~/.bashrc && \
 	echo "export LIBRARY_PATH=\$HIFP_PRECI/logging" >> ~/.bashrc
 
+ENV HIFPTUNER_PATH="$HOME/HiFPTuner"
+
+RUN \
+    cd $HOME/HiFPTuner/precimonious/logging && \
+    make clean; make
+
+ENV LLVM_VERSION=llvm-3.8
+ENV	PATH="/root/$LLVM_VERSION/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/root/$LLVM_VERSION/lib"
+ENV CPATH="/root/$LLVM_VERSION/include:."
+
+RUN \
+    cd $HOME/HiFPTuner/src/varDeps && \
+    make clean; make
+        
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
