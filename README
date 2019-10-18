@@ -1,10 +1,11 @@
 
 HiFPTuner
 
-paper: Exploiting community structure for floating-point precision tuning ISSTA'18
+paper: Exploiting community structure for floating-point precision tuning, ISSTA'18
 
--------------------------------------------------------
+*******************************************************
 INSTALL
+*******************************************************
 -------------------------------------------------------
 Prerequisites:
     1. llvm 3.0 & 3.8
@@ -36,11 +37,13 @@ Install HiFPTuner:
     4. go to path/to/HiFPTuner/src/varDeps
     5. make clean; make
 
--------------------------------------------------------
+
+*******************************************************
 USAGE
+*******************************************************
 -------------------------------------------------------
 example simpsons
-    ---------------------------------
+
     GENERATE HiFPTuner config files
         "topolOrder_pro.json"
         "partition.json"
@@ -64,7 +67,7 @@ example simpsons
         (Check outputs: "partition.json", "sorted_partition.json" and "topolOrder_pro.json" for the unsorted hierarchy, sorted hierarchy and the topological ordered variable list)
         (Also, check varDepGraph_pro.png for the visualized dependence graph)
 
-    ----------------------------------------------------
+
     GENERATE sorted PRECIMONIOUS search and config files
         "sorted_search_TEST.json"
         "sorted_config_TEST.json" 
@@ -72,7 +75,7 @@ example simpsons
     $path/to/HiFPTuner/scripts/sort.sh search_simpsons.json config_simpsons.json topolOrder_pro.json
     (Check outputs: "sorted_search_simpsons.json" and "sorted_config_simpsons.json" for the sorted PRECIMONIOUS search and config files)
 
-    --------------
+
     Dynamic TUNING
     --------------
     Firstly, $cp path/to/HiFPTuner/src/preci_dd/* path/to/precimonious/scripts/ AND,
