@@ -96,7 +96,7 @@ RUN \
 
 # Cloning and Installing HiFPTuner
 RUN \
-    git clone https://github.com/ucd-plse/HiFPTuner && \
+    git clone https://github.com/ucd-plse/HiFPTuner.git && \
     echo "\nexport HIFPTUNER_PATH=$HOME/HiFPTuner" >> ~/.bashrc && \
     echo "export HIFP_PRECI=$HOME/HiFPTuner/precimonious" >> ~/.bashrc && \
     echo "export LD_LIBRARY_PATH=\$HIFP_PRECI/logging:\$LD_LIBRARY_PATH" >> ~/.bashrc && \
