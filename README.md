@@ -4,6 +4,7 @@
 paper: Exploiting community structure for floating-point precision tuning, ISSTA'18
 
 ## INSTALL
+-------------------------------------------------------
 You can either use docker or build from scratch which is the hard way to use HiFPTuner.
 
 ### Use docker
@@ -51,20 +52,14 @@ Install HiFPTuner:
        in the docker image of HiFPTuner, switching to llvm 3.8 as following, 
        4.1 modify ~/.bashrc: $LLVM_VERSION=llvm-3.8
        4.2 . ~/.bashrc
-    5. go to path/to/HiFPTuner/src/varDeps
-    5. make clean; make
+    5. cd HiFPTuner/src/varDeps
+    6. make clean; make
 
-USAGE
+## Example
 -------------------------------------------------------
-example simpsons
 
-    GENERATE HiFPTuner config files
-        "topolOrder_pro.json"
-        "partition.json"
-        "sorted_partition.json"
-        "varDepGraph_pro.png"
-    ---------------------------------    
-    1. $cd path/to/HiFPTuner/examples/simpsons
+#### To generate HiFPTuner config files : "sorted_partition.json"    
+    1. $cd HiFPTuner/examples/simpsons
  
     2. generate llvm_3.0 bitcode file
         $switch to llvm 3.0
@@ -81,25 +76,6 @@ example simpsons
         (Check outputs: "partition.json", "sorted_partition.json" and "topolOrder_pro.json" for the unsorted hierarchy, sorted hierarchy and the topological ordered variable list)
         (Also, check varDepGraph_pro.png for the visualized dependence graph)
 
-
-    GENERATE sorted PRECIMONIOUS search and config files
-        "sorted_search_TEST.json"
-        "sorted_config_TEST.json" 
-    -----------------------------------------------------
-    $path/to/HiFPTuner/scripts/sort.sh search_simpsons.json config_simpsons.json topolOrder_pro.json
-    (Check outputs: "sorted_search_simpsons.json" and "sorted_config_simpsons.json" for the sorted PRECIMONIOUS search and config files)
-
-
-    Dynamic TUNING
-    --------------
-    Firstly, $cp path/to/HiFPTuner/src/preci_dd/* path/to/precimonious/scripts/ AND,
-             $switch to llvm 3.0
-
-    1. "sorting"
-        $python path/to/HiFPTuner/precimonious/scripts/dd2.py simpsons.bc sorted_search_simpsons.json sorted_config_simpsons.json
-
-    2. "grouping"
-        $python -O path/to/HiFPTuner/precimonious/scripts/dd2_prof.py simpsons.bc search_simpsons.json config_simpsons.json partition.json
-
-    3. "sorted_grouping"
-        $python -O path/to/HiFPTuner/precimonious/scripts/dd2_prof.py simpsons.bc search_simpsons.json config_simpsons.json sorted_partition.json
+#### Dynamic TUNING 
+    $switch to llvm 3.0
+    $python -O path/to/HiFPTuner/precimonious/scripts/dd2_prof.py simpsons.bc search_simpsons.json config_simpsons.json sorted_partition.json
