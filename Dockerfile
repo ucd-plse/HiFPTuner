@@ -74,13 +74,18 @@ RUN \
     cd && \
     git clone https://github.com/ucd-plse/precimonious.git && \
     cd precimonious && \
-    echo "export CORVETTE_PATH=$HOME/precimonious" >> ~/.bashrc && \
-    /bin/bash -c "source ~/.bashrc" && \
-    cd src && \
+    echo "export CORVETTE_PATH=$HOME/precimonious" >> ~/.bashrc
+
+ENV CORVETTE_PATH="/root/precimonious"
+
+    #/bin/bash -c "source ~/.bashrc" && \
+RUN \
+    cd $HOME/precimonious/src && \
     sed -i "s/SHLINKFLAGS='-Wl',/SHLINKFLAGS='',/g" SConscript && \
     sed -i "s/LIBS='LLVM-\$llvm_version'/#LIBS='LLVM-\$llvm_version'/g" SConscript && \
     echo $PATH && \
-    #printenv
+    printenv && \
+    scons -Uc && \
     scons -U && \
     scons -U test
 
