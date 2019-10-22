@@ -4,7 +4,7 @@
 paper: Exploiting community structure for floating-point precision tuning, ISSTA'18
 
 ## INSTALL
--------------------------------------------------------
+
 You can either use docker or build from scratch which is the hard way to use HiFPTuner.
 
 ### Use docker
@@ -56,7 +56,7 @@ Install HiFPTuner:
     6. make clean; make
 
 ## Example
--------------------------------------------------------
+
 
 #### To generate HiFPTuner config files : "sorted_partition.json"    
     1. $cd HiFPTuner/examples/simpsons
