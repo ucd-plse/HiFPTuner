@@ -1,11 +1,27 @@
 
-#HiFPTuner
+# HiFPTuner
 
 paper: Exploiting community structure for floating-point precision tuning, ISSTA'18
 
-INSTALL
--------------------------------------------------------
+## INSTALL
+You can either use docker or build from scratch which is the hard way to use HiFPTuner.
+
+### Use docker
+Pull Docker Image from Docker Hub
+
+    docker pull hguo15/hifptuner:vo
+    docker run -ti --name=hifptuner hguo15/hifptuner:vo
+    
+Or Build a Doker Image by yourself
+
+    git clone https://github.com/ucd-plse/HiFPTuner.git
+    cd HiFPTuner
+    docker build -t docker-hifptuner .
+    docker run -ti --name=hifptuner docker-hifptuner
+
+### Build from scratch
 Prerequisites:
+
     1. llvm 3.0 & 3.8
 
     2. Precimonious
@@ -27,14 +43,16 @@ Prerequisites:
         apt-get install python-dev
 
 Install HiFPTuner:
-    1. go to path/to/HiFPTuner/precimonious/logging
-    2. make clean; make
-    3. switch to llvm 3.8
-       3.1 modify ~/.bashrc: $LLVM_VERSION=llvm-3.8
-       3.2 . ~/.bashrc
-    4. go to path/to/HiFPTuner/src/varDeps
-    5. make clean; make
 
+    1. git clone https://github.com/ucd-plse/HiFPTuner.git
+    2. cd HiFPTuner/precimonious/logging
+    3. make clean; make
+    4. switch to llvm 3.8
+       in the docker image of HiFPTuner, switching to llvm 3.8 as following, 
+       4.1 modify ~/.bashrc: $LLVM_VERSION=llvm-3.8
+       4.2 . ~/.bashrc
+    5. go to path/to/HiFPTuner/src/varDeps
+    5. make clean; make
 
 USAGE
 -------------------------------------------------------
