@@ -77,5 +77,13 @@ Install HiFPTuner:
         (Also, check varDepGraph_pro.png for the visualized dependence graph)
 
 #### Dynamic TUNING 
-    $switch to llvm 3.0
-    $python -O path/to/HiFPTuner/precimonious/scripts/dd2_prof.py simpsons.bc search_simpsons.json config_simpsons.json sorted_partition.json
+    1. switch to llvm 3.0
+
+    2. create current precision configuration file
+      $path/to/HiFPTuner/precimonious/scripts/pconfig.sh simpsons .
+
+    3. create search space
+      $path/to/HiFPTuner/precimonious/scripts/search.sh simpsons .
+
+    4. dynamic tuning
+      $python -O path/to/HiFPTuner/precimonious/scripts/dd2_prof.py simpsons.bc search_simpsons.json config_simpsons.json sorted_partition.json
