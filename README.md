@@ -62,12 +62,12 @@ Install HiFPTuner:
     1. $cd HiFPTuner/examples/simpsons
  
     2. generate llvm_3.0 bitcode file
-        $switch to llvm 3.0
+        switch to llvm 3.0
         $clang -c -emit-llvm simpsons.c -o simpsons.bc
         $path/to/HiFPTuner/scripts/compile.sh simpsons.bc
 
     3. Run llvm analysis and transformation passes to attain the dependence graph
-        $switch to llvm 3.8
+        switch to llvm 3.8
         $path/to/HiFPTuner/scripts/analyze.sh json_simpsons.bc
         (Check outputs: "varDepPairs_pro.json" and "edgeProfilingOut.json" for the dependece pairs and edge weights.)
 
