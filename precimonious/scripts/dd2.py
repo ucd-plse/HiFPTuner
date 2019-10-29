@@ -20,6 +20,7 @@ search_counter = 0
 #
 def run_config(search_config, original_config, bitcode, timeout):
   global search_counter
+  print "** Exploring configuration #" + str(search_counter)
   utilities.print_config(search_config, "config_temp.json")
   result = transform2.transform(bitcode, "config_temp.json", timeout)
   if result == 1:

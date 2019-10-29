@@ -28,6 +28,7 @@ def run_config(search_config, original_config, bitcode, timeout):
         print>>fp, search_config
         fp.close()
     global search_counter
+    print "** Exploring configuration #" + str(search_counter)
     utilities.print_config(search_config, "config_temp.json")
     result = transform2.transform(bitcode, "config_temp.json", timeout)
     if result == 1:
