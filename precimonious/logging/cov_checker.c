@@ -57,11 +57,11 @@ void cov_check(char* log, char* spec, int length) {
 
 	predicate = 1;
 	for (i = 0; i < length; i++) {
-          if (isnan(estimate[i]) || isinf(estimate[i]) )
-          {
-            predicate = 0;
-            break;
-          }
+    if (isnan(estimate[i]) || isinf(estimate[i]) )
+    {
+      predicate = 0;
+      break;
+    }
 		long double diff;
 		if (estimate[i] > ideal[i]) diff = estimate[i] - ideal[i];
 		else diff = ideal[i] - estimate[i];
@@ -73,15 +73,23 @@ void cov_check(char* log, char* spec, int length) {
 
 
 
-  if (predicate) printf("true\n");
-  else printf("false\n");
+	if (predicate) { 
+	  printf("** Result is within error threshold\n\n");
+	}
+	else {
+	  printf("** Result is NOT within error threshold\n\n");
+	}
 
   // print result to a file
   FILE *result_file;
   result_file = fopen("sat.cov", "w");
 
-  if (predicate) fprintf(result_file, "true\n"); 
-  else fprintf(result_file, "false\n");
+  if (predicate) {
+    fprintf(result_file, "true\n"); 
+  }
+  else {
+    fprintf(result_file, "false\n");
+  }
 }
 
 void cov_check_(int* length_pointer) {
@@ -152,8 +160,12 @@ void cov_check_(int* length_pointer) {
 
 
 
-  if (predicate) printf("true\n");
-  else printf("false\n");
+	if (predicate) {
+	  printf("** Result within error threshold\n\n");
+	}
+	else {
+	  printf("** Result is NOT within error threshold\n\n");
+	}
 
   // print result to a file
   FILE *result_file;
@@ -224,8 +236,12 @@ void cov_check_par(char* log, char* spec, int length, char* inx) {
 	}
 
 
-  if (predicate) printf("true\n");
-  else printf("false\n");
+	if (predicate) {
+	  printf("** Result is within error threshold\n\n");
+	}
+	else {
+	  printf("** Result is NOT within error threshold\n\n");
+	}
 
   // print result to a file
   FILE *result_file;

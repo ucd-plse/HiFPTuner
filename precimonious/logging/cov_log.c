@@ -44,7 +44,7 @@ void cov_log_(int* count_pointer, ...)
 
   va_list ap;
   int i, j;
-  va_start(ap, count);
+  va_start(ap, count_pointer);
   for (j=0; j < count; j++)
   {
     int ld_size;
@@ -118,7 +118,7 @@ void cov_spec_log_(long double* delta_pointer, int* count_pointer, ...)
 
   va_list ap;
   int i, j;
-  va_start(ap, count);
+  va_start(ap, count_pointer);
   for (j=0; j < count; j++)
   {
     int ld_size;
