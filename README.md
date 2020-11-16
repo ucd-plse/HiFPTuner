@@ -10,8 +10,8 @@ You can either use docker or build from scratch which is the hard way to use HiF
 ### Use docker
 Pull Docker Image from Docker Hub
 
-    docker pull hguo15/hifptuner:vo
-    docker run -ti --name=hifptuner hguo15/hifptuner:vo
+    docker pull hguo15/hifptuner:v0
+    docker run -ti --name=hifptuner hguo15/hifptuner:v0
     
 Or Build a Doker Image by yourself
 
